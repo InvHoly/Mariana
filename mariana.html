@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para a minha Mariana ♡</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #0d0508;
+    font-family: 'Cormorant Garamond', serif;
+    color: #f5e8d8;
+    overflow-x: hidden;
+  }
+
+  /* ── Stars ── */
+  .stars { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+  .star  { position:absolute; border-radius:50%; background:#f5e8d8; animation:twinkle linear infinite; }
+  @keyframes twinkle { 0%,100%{opacity:.08;} 50%{opacity:.65;} }
+
+  /* ── Petals ── */
+  .petals { position:fixed; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+  .petal  { position:absolute; top:-40px; animation:fall linear infinite; }
+  @keyframes fall {
+    0%   { transform:translateY(-40px) rotate(0deg);   opacity:.8; }
+    100% { transform:translateY(110vh)  rotate(540deg); opacity:0;  }
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position:relative; z-index:1;
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:2rem;
+    background: radial-gradient(ellipse at 50% 60%, #3d0b1c 0%, #0d0508 68%);
+  }
+
+  .heart-wrap {
+    position:relative; margin-bottom:2.5rem;
+    animation: heartbeat 2.4s ease-in-out infinite;
+  }
+  @keyframes heartbeat {
+    0%,100%{transform:scale(1);}
+    15%{transform:scale(1.13);}
+    30%{transform:scale(1);}
+    45%{transform:scale(1.07);}
+    60%{transform:scale(1);}
+  }
+  .heart-emoji { font-size:100px; display:block; line-height:1; filter:drop-shadow(0 0 25px #e8557a) drop-shadow(0 0 55px #b02045); }
+  .name-badge {
+    position:absolute; bottom:-14px; left:50%; transform:translateX(-50%);
+    background:linear-gradient(135deg,#e8557a,#c23060);
+    color:#fff; font-family:'Cormorant Garamond',serif;
+    font-size:13px; font-weight:400; letter-spacing:3px; text-transform:uppercase;
+    padding:5px 18px; border-radius:30px; white-space:nowrap;
+    box-shadow:0 4px 20px rgba(232,85,122,.5);
+  }
+
+  .eyebrow { font-size:11px; letter-spacing:5px; text-transform:uppercase; color:#b06070; margin-bottom:1.2rem; }
+
+  h1 {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(2.4rem,7vw,5rem);
+    font-weight:400; font-style:italic;
+    color:#f5e8d8; line-height:1.15; margin-bottom:.6rem;
+    text-shadow:0 0 60px rgba(232,85,122,.25);
+  }
+  h1 span { color:#e8857a; }
+
+  .divider { display:flex; align-items:center; gap:14px; margin:1.6rem auto; width:fit-content; }
+  .dl { height:1px; width:55px; background:linear-gradient(to right,transparent,#a05060); }
+  .dr { height:1px; width:55px; background:linear-gradient(to left, transparent,#a05060); }
+  .divider em { color:#a05060; font-size:20px; font-style:normal; }
+
+  .lead { font-size:1.25rem; font-weight:300; font-style:italic; color:#ddc8b8; max-width:460px; line-height:1.9; margin-bottom:2.5rem; }
+
+  .scroll-cue { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#7a4050; animation:bob 2s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{transform:translateY(0);opacity:.4;} 50%{transform:translateY(7px);opacity:1;} }
+
+  /* ── Separator ── */
+  .sep { position:relative; z-index:1; height:1px; max-width:300px; margin:0 auto; background:linear-gradient(to right,transparent,#c8557a,transparent); }
+
+  /* ── Section ── */
+  .section { position:relative; z-index:1; padding:5rem 1.5rem; max-width:700px; margin:0 auto; text-align:center; }
+  .sec-tag { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:#b06070; margin-bottom:.8rem; }
+  .section h2 { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,4vw,2.9rem); font-weight:400; font-style:italic; color:#f5e8d8; margin-bottom:1.5rem; }
+  .section p  { font-size:1.15rem; font-weight:300; font-style:italic; color:#c8b0a0; line-height:1.95; }
+
+  /* ── Cards ── */
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(175px,1fr)); gap:1.2rem; margin-top:2.5rem; }
+  .card { background:rgba(255,255,255,.04); border:1px solid rgba(200,85,120,.18); border-radius:18px; padding:1.6rem 1.1rem; transition:all .35s ease; cursor:default; }
+  .card:hover { background:rgba(200,85,120,.1); border-color:rgba(200,85,120,.45); transform:translateY(-5px); box-shadow:0 12px 30px rgba(200,85,120,.15); }
+  .card-icon { font-size:36px; display:block; margin-bottom:.7rem; }
+  .card h3 { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:400; color:#f5e8d8; margin-bottom:.4rem; }
+  .card p   { font-size:.92rem; color:#9a6870; font-style:italic; line-height:1.55; }
+
+  /* ── Letter ── */
+  .letter-box {
+    background:rgba(255,255,255,.03); border:1px solid rgba(200,85,120,.2);
+    border-radius:20px; padding:2.5rem 2rem; text-align:left; position:relative; margin-top:1.5rem;
+  }
+  .letter-box::before {
+    content:'"'; font-family:'Playfair Display',serif;
+    font-size:100px; color:rgba(200,85,120,.12);
+    position:absolute; top:10px; left:20px; line-height:1;
+  }
+  .letter-box p { font-size:1.2rem; font-weight:300; font-style:italic; color:#d8c0b0; line-height:2; position:relative; z-index:1; }
+  .letter-sign  { text-align:right; margin-top:1.5rem; font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; color:#c8857a; }
+
+  /* ── Timeline ── */
+  .timeline { margin-top:2.5rem; position:relative; }
+  .timeline::before {
+    content:''; position:absolute; left:50%; transform:translateX(-50%);
+    top:0; bottom:0; width:1px;
+    background:linear-gradient(to bottom,transparent,#a05060 20%,#a05060 80%,transparent);
+  }
+  .tl-item { display:flex; align-items:center; margin-bottom:2.5rem; gap:1.5rem; }
+  .tl-item:nth-child(odd)  { flex-direction:row;         text-align:right; }
+  .tl-item:nth-child(even) { flex-direction:row-reverse; text-align:left;  }
+  .tl-content { flex:1; }
+  .tl-dot { width:14px; height:14px; border-radius:50%; background:#c8557a; border:2px solid #0d0508; box-shadow:0 0 12px rgba(200,85,120,.6); flex-shrink:0; z-index:1; }
+  .tl-content h4 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:400; font-style:italic; color:#f5e8d8; margin-bottom:.3rem; }
+  .tl-content span { font-size:.85rem; color:#8a5560; letter-spacing:1px; }
+
+  /* ── Final ── */
+  .final {
+    position:relative; z-index:1;
+    min-height:60vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:4rem 2rem;
+    background:radial-gradient(ellipse at center bottom,#3d0b1c 0%,#0d0508 65%);
+  }
+  .final h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.5rem); font-weight:400; font-style:italic; color:#f5e8d8; margin:1.5rem 0 1rem; }
+  .final p   { font-size:1.1rem; color:#9a6870; font-style:italic; max-width:380px; line-height:1.8; }
+  .hearts-row { font-size:28px; letter-spacing:8px; }
+  .sign { color:#c8557a; font-size:1.3rem; font-family:'Playfair Display',serif; font-style:italic; margin-top:1rem; }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="petals" id="petals"></div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="heart-wrap">
+    <span class="heart-emoji">🌹</span>
+    <div class="name-badge">Mariana</div>
+  </div>
+
+  <p class="eyebrow">Uma mensagem especial</p>
+
+  <h1>Para a minha<br><span>Mariana</span></h1>
+
+  <div class="divider">
+    <div class="dl"></div>
+    <em>♡</em>
+    <div class="dr"></div>
+  </div>
+
+  <p class="lead">
+    Há momentos que ficam para sempre no coração —<br>
+    este é um deles.
+  </p>
+
+  <p class="scroll-cue">▾ &nbsp; continua a ler &nbsp; ▾</p>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ RAZÕES ═══════════ -->
+<section class="section">
+  <p class="sec-tag">o que sinto por ti</p>
+  <h2>Razões pelas quais<br>te amo, Mariana</h2>
+  <p>Existem mil razões, mas estas ficam gravadas no meu coração todos os dias.</p>
+
+  <div class="cards">
+    <div class="card">
+      <span class="card-icon">😊</span>
+      <h3>O teu sorriso</h3>
+      <p>Capaz de iluminar qualquer dia escuro</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">💫</span>
+      <h3>A tua alma</h3>
+      <p>Única, bonita e cheia de luz</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤝</span>
+      <h3>A tua força</h3>
+      <p>Inspiras-me a ser melhor todos os dias</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎶</span>
+      <h3>A tua gargalhada</h3>
+      <p>A música mais bonita que já ouvi</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌙</span>
+      <h3>Os nossos momentos</h3>
+      <p>Cada um deles é um tesouro</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏠</span>
+      <h3>O teu lar</h3>
+      <p>É em ti que me sinto em casa</p>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ CARTA ═══════════ -->
+<section class="section">
+  <p class="sec-tag">do fundo do coração</p>
+  <h2>Uma carta para ti</h2>
+
+  <div class="letter-box">
+    <p>
+      Mariana,<br><br>
+      Às vezes olho para ti e não consigo acreditar na sorte que tenho.
+      Tens uma maneira de entrar em qualquer momento e torná-lo especial —
+      sem esforço, sem pretensão, simplesmente sendo tu.<br><br>
+      Obrigado por cada abraço, por cada conversa que nunca acaba, por cada
+      vez que me fazes sentir que o mundo faz sentido quando estás ao meu lado.<br><br>
+      Hoje e sempre — é contigo.
+    </p>
+    <div class="letter-sign">Com todo o meu amor ♡</div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ TIMELINE ═══════════ -->
+<section class="section">
+  <p class="sec-tag">a nossa história</p>
+  <h2>Momentos que guardarei<br>para sempre</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-content">
+        <h4>O nosso primeiro encontro</h4>
+        <span>o dia em que tudo mudou</span>
+      </div>
+      <div class="tl-dot"></div>
+      <div style="flex:1"></div>
+    </div>
+    <div class="tl-item">
+      <div style="flex:1"></div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h4>A primeira vez que te disse que te amava</h4>
+        <span>palavras que saíram do coração</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content">
+        <h4>Cada aventura contigo</h4>
+        <span>memórias que guardo com carinho</span>
+      </div>
+      <div class="tl-dot"></div>
+      <div style="flex:1"></div>
+    </div>
+    <div class="tl-item">
+      <div style="flex:1"></div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <h4>Hoje e amanhã</h4>
+        <span>o futuro que quero construir contigo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ═══════════ FINAL ═══════════ -->
+<section class="final">
+  <div class="hearts-row">🌹 ♡ 🌹</div>
+  <h2>Mariana,<br>és o meu mundo</h2>
+  <p>Obrigado por existires, por seres quem és, e por fazeres parte da minha vida.</p>
+  <p class="sign">Para sempre teu ♡</p>
+</section>
+
+<script>
+  // Stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 100; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2 + 1;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random() * 100}%;
+      top:${Math.random() * 100}%;
+      animation-duration:${2 + Math.random() * 4}s;
+      animation-delay:${Math.random() * 5}s;
+    `;
+    starsEl.appendChild(s);
+  }
+
+  // Petals
+  const petalsEl = document.getElementById('petals');
+  const petalChars = ['🌸','🌺','🍃','✿','❀','🌹'];
+  for (let i = 0; i < 22; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = petalChars[Math.floor(Math.random() * petalChars.length)];
+    p.style.cssText = `
+      left:${Math.random() * 100}%;
+      font-size:${12 + Math.random() * 18}px;
+      animation-duration:${7 + Math.random() * 9}s;
+      animation-delay:${Math.random() * 8}s;
+    `;
+    petalsEl.appendChild(p);
+  }
+</script>
+</body>
+</html>
